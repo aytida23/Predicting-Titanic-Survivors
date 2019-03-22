@@ -10,7 +10,7 @@ import re
 train_data = pd.read_csv('train.csv')
 test_data = pd.read_csv('test.csv')
 all_data = [train_data, test_data]
-passenger_id = test_data['PassengerId']
+#passenger_id = test_data['PassengerId']
 
 #Feature 1: Pclass
 #This shows 1st class passenger survived much more in percentage ratio as compare to the other Pclasses
@@ -18,13 +18,12 @@ passenger_id = test_data['PassengerId']
 print(train_data[["Pclass","Survived"]].groupby(["Pclass"], as_index = False).mean())
 
 #Visualising the total percentage of Pclass
-
-fig = plt.figure(figsize=(18,6))
+'''fig = plt.figure(figsize=(18,6))
 plt.subplot2grid((2,3), (0,0))
 total_pclasses = train_data.Pclass.value_counts()
 print(total_pclasses) #there are total 491 passengers of 3rd Pclass, 216 of 1st Pclass, and 184 of 2nd Pclass
-
 train_data.Pclass.value_counts(normalize=True).plot(kind='bar', alpha=0.5) #this plots the bar graph of all Pclasses
+'''
 
 #Feature 2: Sex
 #This shows the females survived much more as compare to the males by showing the survived percentage ratio
@@ -32,11 +31,12 @@ train_data.Pclass.value_counts(normalize=True).plot(kind='bar', alpha=0.5) #this
 print(train_data[["Sex","Survived"]].groupby(["Sex"], as_index = False).mean())
 
 # Shows the total number of males and females in the train data set of the ship
-fig = plt.figure(figsize=(18,6))
+'''fig = plt.figure(figsize=(18,6))
 plt.subplot2grid((2,3), (0,0))
 total_sex = train_data.Sex.value_counts()
 print(total_sex) #this shows there are total 577 males and 314 females
 train_data.Sex.value_counts(normalize=True).plot(kind='bar', alpha=0.5) #this plots the bar graph of total number of sex
+'''
 
 #Feature 3: Family Size (contain SibSp, Parch and the passenger himself/herself)
 
@@ -45,11 +45,11 @@ for data in all_data:
 print(train_data[["family_size","Survived"]].groupby(["family_size"], as_index = False).mean())
 
 #shows the total number of family size in the train data set of ship
-fig = plt.figure(figsize=(18,6))
+'''fig = plt.figure(figsize=(18,6))
 plt.subplot2grid((2,3), (0,0))
 total_family_size = train_data.family_size.value_counts()
 print(total_family_size)
-train_data.family_size.value_counts(normalize=True).plot(kind='bar', alpha=0.5)
+train_data.family_size.value_counts(normalize=True).plot(kind='bar', alpha=0.5)'''
 
 #Feature 3.1: Is the passenger alone in the ship and survived?
 for data in all_data:
@@ -59,11 +59,11 @@ for data in all_data:
 print(train_data[['is_alone', 'Survived']].groupby(['is_alone'], as_index = False).mean())
 
 #shows the passenger is alone from the train data set of the ship
-fig = plt.figure(figsize=(18,6))
+'''fig = plt.figure(figsize=(18,6))
 plt.subplot2grid((2,3), (0,0))
 is_alone = train_data.is_alone.value_counts()
 print(is_alone)
-train_data.is_alone.value_counts(normalize=True).plot(kind='bar', alpha=0.5)
+train_data.is_alone.value_counts(normalize=True).plot(kind='bar', alpha=0.5)'''
 
 #Feature 4: Embarked shows the start point to begin journey of passengers
 
@@ -74,9 +74,9 @@ for data in all_data:
 print(train_data[['Embarked','Survived']].groupby(['Embarked'], as_index = False).mean())
 
 #shows the embarked in a bar graph
-fig = plt.figure(figsize=(18,6))
+'''fig = plt.figure(figsize=(18,6))
 plt.subplot2grid((2,3), (0,0))
-train_data.Embarked.value_counts(normalize=True).plot(kind='bar', alpha=0.5)
+train_data.Embarked.value_counts(normalize=True).plot(kind='bar', alpha=0.5)'''
 
 #Feature 5: Fare
 for data in all_data:
@@ -87,9 +87,9 @@ print(train_data[['category_fare','Survived']].groupby(['category_fare'], as_ind
 
 
 #shows the category_fare in a bar graph
-fig = plt.figure(figsize=(18,6))
+'''fig = plt.figure(figsize=(18,6))
 plt.subplot2grid((2,3), (0,0))
-train_data.category_fare.value_counts(normalize=True).plot(kind='bar', alpha=0.5)
+train_data.category_fare.value_counts(normalize=True).plot(kind='bar', alpha=0.5)'''
 
 #Feature 6: Age
 
